@@ -4,9 +4,7 @@ import { useSelector } from 'react-redux';
 const Oponent = ({ stateToSubscribe }) => {
   const playerData = useSelector(stateToSubscribe);
 
-  useEffect(() => {
-    console.log(playerData, 'playerData');
-  }, [playerData]);
+  useEffect(() => {}, [playerData]);
 
   return (
     <div>

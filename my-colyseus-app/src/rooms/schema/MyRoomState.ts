@@ -8,7 +8,7 @@ export class MyRoomState extends Schema {
   }
 
   @type('string')
-  room_status: string = 'create';
+  room_status: string = 'waiting';
 
   @type(['string'])
   text: string[] = [];

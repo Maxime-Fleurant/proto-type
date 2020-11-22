@@ -20,6 +20,9 @@ export class Player extends Schema {
   @type('number')
   score: number = 0;
 
+  @type('number')
+  badType: number = 0;
+
   @type('string')
   current_word: string = '';
 }
