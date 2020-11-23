@@ -15,7 +15,9 @@ import {
   p4,
   mainPlayer,
   gameState,
+  updateTime,
   addText,
+  timer,
   updateRoomStatus,
 } from '../component/Game/gameSlice';
 import Oponent from '../component/Game/Oponent';
@@ -29,6 +31,7 @@ const Splash = () => {
   const playersRedux = useSelector(players);
   const mainPlayerRedux = useSelector(mainPlayer);
   const gameStateRedux = useSelector(gameState);
+  const timerRedux = useSelector(timer);
 
   useEffect(() => {
     const client = new Colyseus.Client('ws://localhost:2567');
@@ -43,6 +46,10 @@ const Splash = () => {
 
       myRoom.state.listen('text', (data) => {
         dispatch(addText([...data]));
+      });
+
+      myRoom.state.listen('timer', (data) => {
+        dispatch(updateTime(myRoom.state.timer));
       });
 
       myRoom.state.listen('room_status', (data) => {
@@ -117,7 +124,10 @@ const Splash = () => {
 
   return (
     <div>
-      <div>{gameStateRedux}</div>
+      <div>
+        {gameStateRedux}
+        {timerRedux}
+      </div>
       <div>{mainPlayerRedux.key}</div>
       <div>{mainPlayerRedux.current_word}</div>
       <div>OPONENT</div>

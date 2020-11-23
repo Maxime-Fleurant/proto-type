@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const gameSlice = createSlice({
   name: 'game',
   initialState: {
+    timer: 10,
     state: 'waiting',
     text: [],
     mainPlayer: {
@@ -33,6 +34,10 @@ const gameSlice = createSlice({
           state.mainPlayer.current_word = state.text[state.mainPlayer.score];
         }
       }
+    },
+
+    updateTime(state, action) {
+      state.timer = action.payload;
     },
 
     addText(state, action) {
@@ -88,8 +93,10 @@ export const p2 = (state) => state.game.players.p2;
 export const p3 = (state) => state.game.players.p3;
 export const p4 = (state) => state.game.players.p4;
 export const gameState = (state) => state.game.state;
+export const timer = (state) => state.game.timer;
 
 export const {
+  updateTime,
   keyStroke,
   addPlayer,
   removePlayer,

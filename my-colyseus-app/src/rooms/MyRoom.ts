@@ -21,7 +21,6 @@ export class MyRoom extends Room {
             player.score += 1;
 
             if (player.score === 20) {
-              console.log('finisehd');
               this.state.room_status = 'finished';
             }
 
@@ -40,9 +39,13 @@ export class MyRoom extends Room {
     if (this.state.players.size === 5) {
       this.state.room_status = 'full';
       this.lock();
-      setTimeout(() => {
-        this.state.room_status = 'ready';
-      }, 10000);
+      const timerInterval = setInterval(() => {
+        this.state.timer -= 1;
+        if (this.state.timer === 0) {
+          this.state.room_status = 'ready';
+          clearInterval(timerInterval);
+        }
+      }, 1000);
     }
   }
 

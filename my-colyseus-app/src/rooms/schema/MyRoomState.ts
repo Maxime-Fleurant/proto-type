@@ -7,6 +7,9 @@ export class MyRoomState extends Schema {
     this.text = words;
   }
 
+  @type('number')
+  timer: number = 10;
+
   @type('string')
   room_status: string = 'waiting';
 

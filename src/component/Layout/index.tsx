@@ -20,8 +20,8 @@ const Layout: FunctionComponent = ({ children }) => {
           }
         `}
       />
-      <div css={grid}>
-        <div css={headerStyle}>
+      <div>
+        <div>
           <Link href="/">Type Sim</Link>
           {/* <div>
             {accountButton} {logButton}
