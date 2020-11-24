@@ -1,7 +1,10 @@
-import Zoom1 from '../component/Game/Animes/zoom1';
+import { motion } from 'framer-motion';
+import useAnime from '../component/Game/Animes/animations';
 
 const Anime = () => {
-  return <Zoom1 />;
+  const { scale, rotate, opacity, rotateX, rotateY } = useAnime();
+
+  return <motion.div style={{ display: 'inline-block', rotateY }}>Default</motion.div>;
 };
 
 export default Anime;
