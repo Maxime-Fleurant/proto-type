@@ -1,11 +1,8 @@
 import { css, Global } from '@emotion/core';
 import Link from 'next/link';
 import { FunctionComponent } from 'react';
-import { useFetchUser } from '../../lib/user';
-
 import tw from '@tailwindcssinjs/macro';
-
-import { Canvas, useFrame } from 'react-three-fiber';
+import { useFetchUser } from '../../lib/user';
 
 const Layout: FunctionComponent = ({ children }) => {
   const { user, loading } = useFetchUser();
